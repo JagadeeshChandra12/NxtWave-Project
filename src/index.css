@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ivory: #F7F5EF;
+    --ink: #171717;
+    --cobalt: #3F51FF;
+    --lime: #D9FF45;
+    --coral: #FF765F;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--ivory);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: 'Space Grotesk', system-ui, sans-serif; letter-spacing: -0.02em; }
+  code, .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  *:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 2px; }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-medium transition-all duration-150 select-none;
+  }
+  .btn-primary {
+    @apply btn bg-cobalt text-white px-6 py-3 border-2 border-ink shadow-offset hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:translate-x-[4px] active:translate-y-[4px] active:shadow-none;
+  }
+  .btn-lime {
+    @apply btn bg-lime text-ink px-6 py-3 border-2 border-ink shadow-offset hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-ink px-6 py-3 border-2 border-ink hover:bg-ink hover:text-ivory;
+  }
+  .card {
+    @apply bg-white border-2 border-ink shadow-offset;
+  }
+  .label-mono {
+    @apply font-mono text-xs uppercase tracking-widest text-ink/60;
+  }
+  .grid-lines {
+    background-image: linear-gradient(to right, rgba(23,23,23,0.06) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(23,23,23,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+@media print {
+  header, footer, .btn, button { display: none !important; }
+  body { background: white; }
+  .card { box-shadow: none; }
+}
