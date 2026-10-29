@@ -5,3 +5,8 @@ dist/
 *.log
 .DS_Store
 Thumbs.db
+
+# generated
+tsconfig*.tsbuildinfo
+vite.config.d.ts
+vite.config.js
